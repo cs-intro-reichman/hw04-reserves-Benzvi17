@@ -56,19 +56,16 @@ public class StringOps {
             } else {
                 if (capitalizeNext){
                     if(ch >= 'a' && ch <= 'z'){
-                        result += (char)(ch - 'a' + 'A');
+                        result += (char) (ch >= 'a' && ch <= 'z' ? ch - 'a' + 'A' : ch);
+                        capitalizeNext = false;
                     } else {
                         result += ch;
                     }
                 capitalizeNext = false;
                 } else {
-                    if ( ch >= 'A' && ch <= 'Z'){
-                        result += (char)(ch - 'A' + 'a');
-                    } else {
-                        result += ch;
-                    }
+                    result += (char) (ch >= 'A' && ch <= 'Z' ? ch - 'A' + 'a' : ch);
                 }
-            } 
+            }
         }
         return result;
     }
