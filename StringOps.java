@@ -28,12 +28,18 @@ public class StringOps {
     public static String capVowelsLowRest (String string) {
         String new_String = "";
         for (int i = 0; i < string.length(); i++) {
-            if("aeiouAEIOU".indexOf(string.charAt(i)) != -1 ){
+            if("aeiou".indexOf(string.charAt(i)) != -1 ){
                 new_String += (char)(string.charAt(i) - 32);
+            } else if ("AEIOU".indexOf(string.charAt(i)) != -1) {
+                new_String += string.charAt(i);
+            } else if (string.charAt(i) >= 'A' && string.charAt(i) <= 'Z'){
+                new_String += (char)(string.charAt(i) + 32);;
             } else {
-                new_String += (string.charAt(i));
-            }
+                new_String += string.charAt(i);
+            } 
+            
         }
+        
         return new_String;
     }
 
