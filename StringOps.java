@@ -28,7 +28,7 @@ public class StringOps {
     public static String capVowelsLowRest (String string) {
         String new_String = "";
         for (int i = 0; i < string.length(); i++) {
-            if("aeiou".indexOf(string.charAt(i)) != -1 ){
+            if("aeiouAEIOU".indexOf(string.charAt(i)) != -1 ){
                 new_String += (char)(string.charAt(i) - 32);
             } else {
                 new_String += (string.charAt(i));
