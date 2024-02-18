@@ -49,8 +49,8 @@ public class StringOps {
 
         for (int i = 0; i < string.length(); i++) {
             char ch = string.charAt(i);
-
-            if (ch == ' '){
+            if(i==0 && ch>='A' && ch <='Z'){
+            }else if (ch == ' '){
                 capitalizeNext = true;
             } else {
                 if (capitalizeNext){
