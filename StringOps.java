@@ -26,17 +26,61 @@ public class StringOps {
     }
 
     public static String capVowelsLowRest (String string) {
-        // Write your code here:
-        return "";
+        String new_String = "";
+        for (int i = 0; i < string.length(); i++) {
+            if("aeiou".indexOf(string.charAt(i)) != -1 ){
+                new_String += (char)(string.charAt(i) - 32);
+            } else {
+                new_String += (string.charAt(i));
+            }
+        }
+        return new_String;
     }
 
     public static String camelCase (String string) {
-        // Write your code here:
-        return "";
+        String result = "";
+        boolean capitalizeNext = false;
+
+        for (int i = 0; i < string.length(); i++) {
+            char ch = string.charAt(i);
+
+            if (ch == ' '){
+                capitalizeNext = true;
+            } else {
+                if (capitalizeNext){
+                    if(ch >= 'a' && ch <= 'z'){
+                        result += (char)(ch - 'a' + 'A');
+                    } else {
+                        result += ch;
+                    }
+                capitalizeNext = false;
+                } else {
+                    if ( ch >= 'A' && ch <= 'Z'){
+                        result += (char)(ch - 'A' + 'a');
+                    } else {
+                        result += ch;
+                    }
+                }
+            } 
+        }
+        return result;
     }
 
     public static int[] allIndexOf (String string, char chr) {
-        // Write your code here:
-        return new int[1];
+        int count = 0;
+        for (int i = 0; i < string.length(); i++) {
+            if(chr == string.charAt(i)){
+               count++;
+            }
+        }
+        int [] index_Arr = new int [count];
+        int index = 0;
+        for (int i = 0; i < string.length(); i++) {
+            if (string.charAt(i) == chr) {
+                index_Arr[index] = i;
+                index++;
+            }
+        }
+        return index_Arr;
     }
 }
